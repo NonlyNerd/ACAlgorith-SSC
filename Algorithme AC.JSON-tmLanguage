@@ -1,0 +1,81 @@
+// [PackageDev] target_format: plist, ext: tmLanguage
+{ "name": "Algorithme AC",
+  "scopeName": "source.algo",
+  "fileTypes": ["algo"],
+  "uuid": "22bc32ae-456c-4537-b828-e45d2a0878c3",
+
+  "patterns": [
+    { "match": "//.+",
+      "name": "comment.line.double-slash.algo",
+      "comment": "Un commentaire sur une seule ligne"
+    },
+    {
+      "name": "comment.block.algo",
+      "begin": "\\/\\*" ,
+      "end": "\\*\\/",
+      "comment": "Un commentaire sur plusieurs lignes"
+    },
+
+    { "match": "vrai|faux|NULL",
+      "name": "constant.language.algo",
+      "comment": "Valeurs booléenes définis par le langage"
+    },
+
+    { "match": "\\+|-|\\*|/| DIV |%|\\^| OU | ET | OUX | NON |>|<|>=|<=|=|!=|<>|<-|←|@|↓|&",
+      "name": "keyword.operator.algo",
+      "comment": "Opérateurs disponibles pour le langage"
+    },
+
+    { "match": "SINON|SI|FINSI|ALORS|FINSELON|SELON",
+      "name": "entity.name.function.algo",
+      "comment": "Conditions"
+    },
+
+    { "match": "POUR| DE | A |PAS DE|FAIRE|TANTQUE|FINPOUR|FINTANTQUE",
+      "name": "keyword.control.algo",
+      "comment": "Boucles"
+    },
+
+    { "match": "[0-9]+",
+      "name": "constant.numeric.algo",
+      "comment": "Chiffres et nombres"
+    },
+
+    { "match": "CARACTERE:|ENTIER:|REEL:|CHAINE:|BOOLEEN:",
+      "name": "storage.type.algo",
+      "comment": "Types de variables"
+    },
+
+    { "match": "CARACTERE|ENTIER|REEL|CHAINE|BOOLEEN",
+      "name": "storage.modifier.algo",
+      "comment": "Types de retour pour les fonctions"
+    },
+
+    { "name": "variable.complex.algo",
+      "begin": "(TABLEAU)(?:<)(CARACTERE|ENTIER|REEL|CHAINE|BOOLEEN)(?:>)((\\[(?:[0-9]+|[A-Z]+)\\])+)(:)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.algo" },
+        "2": { "name": "storage.type.algo" },
+        "5": { "name": "storage.type.algo" }
+      },
+      "end": "",
+      "comment": "Tableaux"
+    },
+
+    { "name": "variable.complex.algo",
+      "begin": "(POINTEUR)(?:<)(CARACTERE|ENTIER|REEL|CHAINE|BOOLEEN)(?:>)(:)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.algo" },
+        "2": { "name": "storage.type.algo" },
+        "3": { "name": "storage.type.algo" }
+      },
+      "end": "",
+      "comment": "Pointeurs"
+    },
+
+    { "match": "ALGORITHME(?:.+)|CONSTANTE|VARIABLE|FONCTION|FINFONCTION|DEBUT|FIN|Retourne",
+      "name": "keyword.control.algo",
+      "comment": "Mots clés"
+    }
+  ]
+}
