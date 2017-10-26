@@ -21,7 +21,7 @@
       "comment": "Valeurs booléenes définis par le langage"
     },
 
-    { "match": "\\bthis\\b|\\bT\\b",
+    { "match": "\\bthis\\b|\\bT\\b|\\bsuper\\b|\\bnouveau\\b",
       "name": "variable.language.algo",
       "comment": "Variables particulières du langage"
     },
@@ -31,7 +31,7 @@
       "comment": "Opérateurs disponibles pour le langage"
     },
 
-    { "match": "\\bSINON\\b|\\bSI\\b|\\bFINSI\\b|\\bALORS\\b|\\bFINSELON\\b|\\bSELON\\b",
+    { "match": "\\bSINON\\b|\\bSI\\b|\\bFINSI\\b|\\bALORS\\b|\\bFINSELON\\b|\\bSELON\\b|\\bEST\\b|\\bMODIFIE\\b|\\bABSTRAITE\\b",
       "name": "entity.name.function.algo",
       "comment": "Conditions"
     },
@@ -78,7 +78,7 @@
       "comment": "Pointeurs"
     },
 
-    { "match": "\\bALGORITHME(?:.*)|\\bCONSTANTE\\b|\\bVARIABLE\\b|\\bFONCTION\\b|\\bFINFONCTION\\b|\\bDEBUT\\b|\\bFIN\\b|\\bRetourne\\b|\\bCLASSE\\b|\\bFINCLASSE\\b|\\bCONSTRUCTEUR\\b|\\bFINCONSTRUCTEUR\\b",
+    { "match": "\\bALGORITHME(?:.*)|\\bCONSTANTE\\b|\\bVARIABLE\\b|\\bFONCTION\\b|\\bFINFONCTION\\b|\\bDEBUT\\b|\\bFIN\\b|\\bRetourne\\b|\\bCLASSE\\b|\\bFINCLASSE\\b|\\bHERITE\\b|\\bIMPLEMENTE\\b|\\bCONSTRUCTEUR\\b|\\bFINCONSTRUCTEUR\\b|\\bINTERFACE\\b|\\bFININTERFACE\\b",
       "name": "keyword.control.algo",
       "comment": "Mots clés"
     },

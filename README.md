@@ -16,7 +16,11 @@ Install [Sublime Text](https://www.sublimetext.com/3) and
 Then install [PackageDev](https://github.com/SublimeText/PackageDev) (see README
 on the repo for further informations about this package).
 
-Open the `JSON-tmLanguage` file with Sublime and press `CTRL/⌘ + B`.
+Before compiling, clone or download this repo somewhere on your disk.
+
+Then, open the `JSON-tmLanguage` file with Sublime and press `CTRL/⌘ + B`. If
+everything goes well, you will have a `tmLanguage` file poping in the
+same folder as the `JSON-tmLanguage`.
 
 How to install
 --------------
@@ -35,3 +39,18 @@ How to contribute
 -----------------
 
 Feel free to fork and make a request from your repository.
+
+Language conventions
+--------------------
+
+Convention for variables names (lower camel case with optionnal number ending) :
+
+	`[a-z]+([A-Z]{1}[a-z]*)*(\d+)*`
+
+Convention for constants names (uppercase with underscores between words) :
+
+	`[A-Z]+(_[A-Z]+)*`
+
+Convention for function and class names (upper camel case) :
+
+	`([A-Z]{1}[a-z]+)+`
