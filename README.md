@@ -39,8 +39,8 @@ VSCode compatibility
 --------------------
 
 Since VSCode use the same language definition, this repo is compatible. See 
-[vscode-tmlanguage][https://github.com/Togusa09/vscode-tmlanguage] repo for
-further details.
+[vscode-tmlanguage](https://github.com/Togusa09/vscode-tmlanguage) repo and this
+[SO post](https://stackoverflow.com/a/32996211) for further details.
 
 How to contribute
 -----------------
