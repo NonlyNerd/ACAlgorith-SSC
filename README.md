@@ -35,6 +35,13 @@ Every file with `.algo` extension will be opened with the right syntax. You can
 also setup the syntax via the command palette or the down right corner of your
 current window.
 
+VSCode compatibility
+--------------------
+
+Since VSCode use the same language definition, this repo is compatible. See 
+[vscode-tmlanguage][https://github.com/Togusa09/vscode-tmlanguage] repo for
+further details.
+
 How to contribute
 -----------------
 

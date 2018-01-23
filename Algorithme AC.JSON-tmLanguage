@@ -9,6 +9,7 @@
       "name": "comment.line.double-slash.algo",
       "comment": "Un commentaire sur une seule ligne"
     },
+
     {
       "name": "comment.block.algo",
       "begin": "\\/\\*" ,
@@ -16,32 +17,71 @@
       "comment": "Un commentaire sur plusieurs lignes"
     },
 
-    { "match": "\\bvrai\\b|\\bfaux\\b|\\bNULL\\b",
+    { "match": "\\b(vrai|faux|NULL)\\b",
       "name": "constant.language.algo",
       "comment": "Valeurs booléenes définis par le langage"
     },
 
-    { "match": "\\bthis\\b|\\bT\\b|\\bsuper\\b|\\bnouveau\\b",
+    { "match": "\\b(this|super|nouveau|valeur)\\b",
       "name": "variable.language.algo",
       "comment": "Variables particulières du langage"
     },
 
-    { "match": "\\+|-(?![0-9]*[.]?[0-9]+)|\\*|/|\\bDIV\\b|%|\\^|\\bOU\\b|\\bET\\b|\\bOUX\\b|\\bNON\\b|>|<|>=|<=|=|!=|<>|<-|←|@|↓|&|!",
+    { "match": "\\s(\\+|<-|-|\\*|/|DIV|%|\\^|OU|ET|OUX|NON|>|<|>=|<=|=|!=|<>|←)\\s",
       "name": "keyword.operator.algo",
       "comment": "Opérateurs disponibles pour le langage"
     },
 
-    { "match": "\\bSINON\\b|\\bSI\\b|\\bFINSI\\b|\\bALORS\\b|\\bFINSELON\\b|\\bSELON\\b|\\bEST\\b|\\bMODIFIE\\b|\\bABSTRAITE\\b",
-      "name": "entity.name.function.algo",
+    { "begin": "(NON)?(?: ?\\( ?)?(EOF)",
+      "beginCaptures": {
+      "1": { "name": "keyword.operator.algo" },
+      "2": { "name": "keyword.operator.algo" }
+    },
+    "end": "",
+    "comment": "Utilisation du NON pour le parcours de fichiers"
+    },
+
+    {  "name": "keyword.operator.algo",
+       "match": "!|@|↓|⬇|&",
+       "comment": "Opérateurs disponibles pour le langage"
+    },
+
+    { "match": "\\b(SINON|SI|FINSI|ALORS|FINSELON|SELON|FAIRE|EST)\\b",
+      "name": "keyword.control.algo",
       "comment": "Conditions"
     },
 
-    { "match": "\\bPOUR\\b|\\bDE\\b|\\bA\\b|\\bPAS DE\\b|\\bFAIRE\\b|\\bTANTQUE\\b|\\bFINPOUR\\b|\\bFINTANTQUE\\b",
+    { "match": "\\bABSTRAITE\\b|\\bMODIFIE\\b|\\bHERITE\\b|\\bIMPLEMENTE\\b",
+      "name": "entity.name.function.algo",
+      "comment": "Modifieurs"
+    },
+
+    { "match": "\\b(POUR|DE|A|PAS DE|FAIRE|TANTQUE|FINPOUR|FINTANTQUE)\\b",
       "name": "keyword.control.algo",
       "comment": "Boucles"
     },
 
-    { "match": "\\b-?[0-9]*[.]?[0-9]+",
+    { "name": "keyword.control.algo",
+      "match": "\\b(DECLARE|CURSEUR|FINDECLARE|OPEN|CLOSE)\\b",
+      "comment": "Curseurs. Contient également le mot clef POUR."
+    },
+
+    {  "name": "storage.modifier.algo",
+       "match": "\\b(PUBLIC|PRIVATE|PROTECTED|INTERNAL|STATIC)\\b",
+       "comment": "Modificateurs d'accès"
+    },
+
+    {  "name": "entity.name.function.algo",
+       "match": "\\b(ACCESSEUR|GET|FINGET|SET|FINSET|FINACCESSEUR)\\b",
+       "comment": "Accesseurs"
+    },
+
+    { "begin": "(-?)([0-9]*[.]?[0-9]+)",
+      "beginCaptures": {
+        "1": { "name": "constant.numeric.algo" },
+        "2": { "name": "constant.numeric.algo" }
+      },
+      "end": "",
       "name": "constant.numeric.algo",
       "comment": "Chiffres et nombres"
     },
@@ -51,13 +91,17 @@
       "comment": "Types de variables"
     },
 
-    { "match": "\\bCARACTERE(?!\\s:)\\b|\\bENTIER(?!\\s:)\\b|\\bREEL(?!\\s:)\\b|\\bCHAINE(?!\\s:)\\b|\\bBOOLEEN(?!\\s:)\\b",
-      "name": "storage.modifier.algo",
-      "comment": "Types de retour pour les fonctions"
+    { "begin": "(FONCTION|ACCESSEUR) (\\b(CARACTERE(?!\\s:)|ENTIER(?!\\s:)|REEL(?!\\s:)|CHAINE(?!\\s:)|BOOLEEN(?!\\s:)|([A-Z]{1}[a-z]*)+)\\b)",
+      "beginCaptures": {
+        "1": { "name": "entity.name.function.algo" },
+        "2": { "name": "storage.type.algo" }
+      },
+      "end": "",
+      "comment": "Types de retour pour les fonctions ou les accesseurs"
     },
 
     { "name": "variable.complex.algo",
-      "begin": "(TABLEAU)(?:<)(CARACTERE|ENTIER|REEL|CHAINE|BOOLEEN)(?:>)((\\[(?:\\w*)\\])+)( ?:)",
+      "begin": "(TABLEAU)(?:<)(CARACTERE|ENTIER|REEL|CHAINE|BOOLEEN|([A-Z]{1}[a-z]*)+)(?:>)((\\[(?:\\w*)\\])+)( ?:)",
       "beginCaptures": {
         "1": { "name": "storage.type.algo" },
         "2": { "name": "storage.type.algo" },
@@ -78,8 +122,8 @@
       "comment": "Pointeurs"
     },
 
-    { "match": "\\bALGORITHME(?:.*)|\\bCONSTANTE\\b|\\bVARIABLE\\b|\\bFONCTION\\b|\\bFINFONCTION\\b|\\bDEBUT\\b|\\bFIN\\b|\\bRetourne\\b|\\bCLASSE\\b|\\bFINCLASSE\\b|\\bHERITE\\b|\\bIMPLEMENTE\\b|\\bCONSTRUCTEUR\\b|\\bFINCONSTRUCTEUR\\b|\\bINTERFACE\\b|\\bFININTERFACE\\b",
-      "name": "keyword.control.algo",
+    { "match": "\\b(ALGORITHME(?:.*)|CONSTANTE|VARIABLE|FONCTION|FINFONCTION|DEBUT|FIN|Retourne|CLASSE|FINCLASSE|CONSTRUCTEUR|FINCONSTRUCTEUR|INTERFACE|FININTERFACE)\\b",
+      "name": "entity.name.function.algo",
       "comment": "Mots clés"
     },
 
@@ -101,7 +145,40 @@
 
     { "name": "string.quoted.double.algo",
       "begin": "\"",
-      "end": "\""
+      "end": "\"",
+      "beginCaptures": {
+        "0": {"name": "punctuation.definition.string.begin.algo"}
+      },
+      "endCaptures": {
+        "0": {"name": "punctuation.definition.string.end.algo"}
+      },
+      "patterns": [
+        {
+          "include": "#string-character-escape"
+        }
+      ]
+    },
+
+    { "name": "string.quoted.simple.algo",
+      "begin": "'",
+      "end": "'",
+      "beginCaptures": {
+        "0": {"name": "punctuation.definition.character.begin.algo"}
+      },
+      "endCaptures": {
+        "0": {"name": "punctuation.definition.character.end.algo"}
+      },
+      "patterns": [
+        {
+          "include": "#string-character-escape"
+        }
+      ]
     }
-  ]
+  ],
+  "repository": {
+    "string-character-escape": {
+      "name": "constant.character.escape.algo",
+      "match": "\\\\(x[0-9A-Fa-f]{2}|.|$)"
+    }
+  }
 }
